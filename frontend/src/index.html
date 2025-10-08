@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rule-Based Cyberbullying Detector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        textarea {
+            width: 70%;
+            height: 100px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 18px;
+            margin-top: 10px;
+            cursor: pointer;
+            background-color: #0078ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+        button:hover {
+            background-color: #005fcc;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚫 Rule-Based Cyberbullying Detector</h1>
+    <p>Type a message below to check if it contains bullying content:</p>
+    <textarea id="inputText"></textarea><br>
+    <button onclick="checkText()">Check</button>
+    <p id="result"></p>
+
+    <script>
+        const badWords = ["stupid", "dumb", "idiot", "hate", "loser"];
+
+        function checkText() {
+            const text = document.getElementById('inputText').value.toLowerCase();
+            let found = false;
+            badWords.forEach(word => {
+                if (text.includes(word)) found = true;
+            });
+            document.getElementById('result').innerText = found
+                ? "⚠️ Bullying Detected!"
+                : "✅ Clean Message!";
+        }
+    </script>
+</body>
+</html>
 
